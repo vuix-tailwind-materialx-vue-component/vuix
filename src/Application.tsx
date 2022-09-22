@@ -18,23 +18,23 @@ const ContentForSectionOne = defineComponent({
 const initialListItems : AccordionItem[] = [
     {
         id: 0,
-        icon: <FingerPrintIcon/>,
+        icon: <FingerPrintIcon class={"w-8 h-8"}/>,
         title: 'Finger',
-        subtitle: 'Current Section is ',
+        subtitle: '',
         isOpen: false,
         content: <ContentForSectionOne/> 
     },
     {
         id: 1,
-        icon: <KeyIcon/> ,
+        icon: <KeyIcon class={"w-8 h-8"}/> ,
         title: 'Hello From Accoordion Section',
-        subtitle: 'Current Section is ',
+        subtitle: '',
         isOpen: false,
         content: {}
     },
     {
         id: 2,
-        icon: <RadioIcon /> ,
+        icon: <RadioIcon class={"w-8 h-8"}/> ,
         title: 'Hello From Accoordion Section',
         subtitle: 'Current Section is ',
         isOpen: false,
@@ -42,7 +42,7 @@ const initialListItems : AccordionItem[] = [
     },
     {
         id: 3,
-        icon: <WalletIcon /> ,
+        icon: <WalletIcon class={"w-8 h-8"}/> ,
         title: 'Hello From Accoordion Section',
         subtitle: 'Current Section is ',
         isOpen: false,
@@ -50,7 +50,7 @@ const initialListItems : AccordionItem[] = [
     },
     {
         id: 4,
-        icon: <MapIcon /> ,
+        icon: <MapIcon class={"w-8 h-8"}/> ,
         title: 'Hello From Accoordion Section',
         subtitle: 'Current Section is ',
         isOpen: false,
@@ -69,9 +69,7 @@ export default defineComponent({
     render(){
         return (
             <div class={'bg-gray-200 min-w-screen min-h-screen mx-auto p-8'}>
-                <div class={"w-2/6"}>
                 <Accordion items={this.items}/>
-                </div>
             </div>
         )
     }

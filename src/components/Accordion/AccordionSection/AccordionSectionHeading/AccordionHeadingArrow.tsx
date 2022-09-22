@@ -5,8 +5,8 @@ const AccordionHeadingArrow = defineComponent({
     name: 'AccordionHeadingArrow',
     render() {
         return(
-            <div id={'__accordion__section__arrow__'} class={"w-8 h-8 rounded-full bg-white text-gray-700"}>
-                <ChevronRightIcon />
+            <div id={'__accordion__section__arrow__'} class={"w-auto h-auto text-gray-500"}>
+                <ChevronRightIcon class={"w-8 h-8"}/>
             </div>
         )
     }

@@ -16,7 +16,7 @@ import { defineComponent, inject } from "vue";
     },
     render() {
         return(
-            <div id={'__accordion__section__icon__'} class={"w-8 h-8 rounded-full bg-inherit text-gray-700"}>
+            <div id={'__accordion__section__icon__'} class={"w-auto h-auto text-gray-500"}>
                 { this.icon }
             </div>
         )

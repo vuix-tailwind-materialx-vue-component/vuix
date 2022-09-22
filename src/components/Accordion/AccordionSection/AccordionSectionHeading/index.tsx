@@ -1,5 +1,5 @@
 import { computed } from "@vue/reactivity";
-import { defineComponent, inject, ref} from "vue";
+import { defineComponent, defineEmits, inject, onMounted, ref} from "vue";
 import AccordionHeadingArrow from "./AccordionHeadingArrow";
 import AccordionHeadingIcon from "./AccordionHeadingIcon";
 import AccordionHeadingTitle from "./AccordionHeadingTitle";
@@ -9,7 +9,7 @@ import AccordionHeadingTitle from "./AccordionHeadingTitle";
  */
 export default defineComponent({
     name: 'AccordionSectionHeading',
-    setup(){
+    setup(props, { emit }){
         const id = inject("id")
         const isOpen = ref(inject("isOpen"))
 
@@ -18,23 +18,25 @@ export default defineComponent({
         })
 
         const arrowIcon = ref();
-
+        // defineExpose(emit)
         return {
             id,
             isOpen,
             toogleActiveClass,
-            arrowIcon
+            arrowIcon,
         }
     },
+    emits: ["headingClicked"],
     render(){
         return (
             <div 
                 id={'__accordion__section__heading__' + this.id} 
-                class={"flex flex-row items-center justify-between px-4 hover:bg-gray-200 hover:cursor-pointer " + this.toogleActiveClass } 
+                class={"flex flex-row items-center justify-between px-4 hover:bg-gray-200 hover:cursor-pointer" + this.toogleActiveClass } 
                 onClick={
                 (e: Event) => {
                     e.preventDefault()
-                    this.$emit("headingClicked");
+                    // this.$emit("headingClicked");
+                    this.$emit("headingClicked")
                     const arrowElement: HTMLElement = this.arrowIcon.$el as HTMLElement
                     arrowElement.classList.toggle("rotate-90")
                 }
