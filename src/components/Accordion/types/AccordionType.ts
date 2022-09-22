@@ -1,6 +1,8 @@
+import type { HtmlAttributes } from "csstype";
+import type { VNode } from "vue";
 interface AccordionItem {
     id: number, 
-    icon: string,
+    icon: VNode,
     title: string,
     subtitle: any,
     arrow: any,

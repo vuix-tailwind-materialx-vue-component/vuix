@@ -1,6 +1,8 @@
 import { defineComponent, reactive } from 'vue';
 import { Accordion } from '@/components';
 import type { AccordionItem } from '@/components';
+import { FingerPrintIcon, KeyIcon, MapIcon, RadioIcon, WalletIcon } from '@heroicons/vue/20/solid';
+
 
 const ContentForSectionOne = defineComponent({
     name: 'ContentForSectionOne',
@@ -16,16 +18,16 @@ const ContentForSectionOne = defineComponent({
 const initialListItems : AccordionItem[] = [
     {
         id: 0,
-        icon: '',
+        icon: <FingerPrintIcon/>,
         title: 'Hello From Accoordion Section',
         subtitle: 'Current Section is ',
         arrow: 'test',
-        isOpen: true,
+        isOpen: false,
         content: <ContentForSectionOne/> 
     },
     {
         id: 1,
-        icon: '',
+        icon: <KeyIcon/> ,
         title: 'Hello From Accoordion Section',
         subtitle: 'Current Section is ',
         arrow: 'test',
@@ -34,7 +36,7 @@ const initialListItems : AccordionItem[] = [
     },
     {
         id: 2,
-        icon: '',
+        icon: <RadioIcon /> ,
         title: 'Hello From Accoordion Section',
         subtitle: 'Current Section is ',
         arrow: 'test',
@@ -43,7 +45,7 @@ const initialListItems : AccordionItem[] = [
     },
     {
         id: 3,
-        icon: '',
+        icon: <WalletIcon /> ,
         title: 'Hello From Accoordion Section',
         subtitle: 'Current Section is ',
         arrow: 'test',
@@ -52,49 +54,49 @@ const initialListItems : AccordionItem[] = [
     },
     {
         id: 4,
-        icon: '',
+        icon: <MapIcon /> ,
         title: 'Hello From Accoordion Section',
         subtitle: 'Current Section is ',
         arrow: 'test',
         isOpen: false,
         content: {}
     },
-    {
-        id: 5,
-        icon: '',
-        title: 'Hello From Accoordion Section',
-        subtitle: 'Current Section is ',
-        arrow: 'test',
-        isOpen: false,
-        content: {}
-    },
-    {
-        id: 6,
-        icon: '',
-        title: 'Hello From Accoordion Section',
-        subtitle: 'Current Section is ',
-        arrow: 'test',
-        isOpen: false,
-        content: {}
-    },
-    {
-        id: 7,
-        icon: '',
-        title: 'Hello From Accoordion Section',
-        subtitle: 'Current Section is ',
-        arrow: 'test',
-        isOpen: false,
-        content: {}
-    },
-    {
-        id: 8,
-        icon: '',
-        title: 'Hello From Accoordion Section',
-        subtitle: 'Current Section is ',
-        arrow: 'test',
-        isOpen: false,
-        content: {}
-    },
+    // {
+    //     id: 5,
+    //     icon: '',
+    //     title: 'Hello From Accoordion Section',
+    //     subtitle: 'Current Section is ',
+    //     arrow: 'test',
+    //     isOpen: false,
+    //     content: {}
+    // },
+    // {
+    //     id: 6,
+    //     icon: '',
+    //     title: 'Hello From Accoordion Section',
+    //     subtitle: 'Current Section is ',
+    //     arrow: 'test',
+    //     isOpen: false,
+    //     content: {}
+    // },
+    // {
+    //     id: 7,
+    //     icon: '',
+    //     title: 'Hello From Accoordion Section',
+    //     subtitle: 'Current Section is ',
+    //     arrow: 'test',
+    //     isOpen: false,
+    //     content: {}
+    // },
+    // {
+    //     id: 8,
+    //     icon: '',
+    //     title: 'Hello From Accoordion Section',
+    //     subtitle: 'Current Section is ',
+    //     arrow: 'test',
+    //     isOpen: false,
+    //     content: {}
+    // },
 ]
 
 export default defineComponent({
@@ -113,3 +115,5 @@ export default defineComponent({
         )
     }
 })
+
+
