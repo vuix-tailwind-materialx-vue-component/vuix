@@ -1,4 +1,4 @@
-import { provide, toRefs, type PropType, defineComponent, computed, ref } from "vue";
+import { provide, toRefs, type PropType, defineComponent, computed, ref, Transition } from "vue";
 import type { AccordionItem } from "../../Accordion/Accordion";
 import AccorrdionSectionContent from "./AccordionSectionContent";
 import AccordionSectionHeading from "./AccordionSectionHeading";
@@ -46,7 +46,10 @@ const AccordionSection = defineComponent({
                     this.isOpen = !this.isOpen
                 }}/>
 
-                { this.isOpen ? <AccorrdionSectionContent /> : '' }
+                { this.isOpen ? 
+                    <AccorrdionSectionContent />
+                    : ''
+                }
             </div>
         )
     }
