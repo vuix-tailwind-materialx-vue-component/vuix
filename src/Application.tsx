@@ -19,7 +19,7 @@ const initialListItems : AccordionItem[] = [
     {
         id: 0,
         icon: <FingerPrintIcon/>,
-        title: 'Hello From Accoordion Section',
+        title: 'Finger',
         subtitle: 'Current Section is ',
         isOpen: false,
         content: <ContentForSectionOne/> 
@@ -69,7 +69,9 @@ export default defineComponent({
     render(){
         return (
             <div class={'bg-gray-200 min-w-screen min-h-screen mx-auto p-8'}>
+                <div class={"w-2/6"}>
                 <Accordion items={this.items}/>
+                </div>
             </div>
         )
     }

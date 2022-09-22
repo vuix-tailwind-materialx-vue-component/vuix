@@ -1,4 +1,4 @@
-import { provide, toRefs, type PropType, defineComponent, computed } from "vue";
+import { provide, toRefs, type PropType, defineComponent, computed, ref } from "vue";
 import type { AccordionItem } from "../../Accordion/Accordion";
 import AccorrdionSectionContent from "./AccordionSectionContent";
 import AccordionSectionHeading from "./AccordionSectionHeading";
@@ -31,20 +31,22 @@ const AccordionSection = defineComponent({
             return props.element.id
         })
 
-        const sectionIsActive = computed(() => {
-            return props.element.isOpen
-        })
-
         return {
+            isOpen,
             currentElementId,
-            sectionIsActive
         }
     },
     render(){
         return (
-            <div id={'__accordion__section__' + (this.currentElementId)} class={"flex flex-col h-auto border-b hover:bg-gray-200 hover:cursor-pointer"}>
-                <AccordionSectionHeading /> 
-                { this.sectionIsActive ? <AccorrdionSectionContent />  : ''}
+            <div 
+                id={'__accordion__section__' + (this.currentElementId)} 
+                class={"flex flex-col h-auto border-b"}>
+
+                <AccordionSectionHeading onHeadingClicked={() => {
+                    this.isOpen = !this.isOpen
+                }}/>
+
+                { this.isOpen ? <AccorrdionSectionContent /> : '' }
             </div>
         )
     }
