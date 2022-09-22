@@ -5,7 +5,6 @@ interface AccordionItem {
     icon: VNode,
     title: string,
     subtitle: any,
-    arrow: any,
     isOpen: boolean,
     content: any,
 }

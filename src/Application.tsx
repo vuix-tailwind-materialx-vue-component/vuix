@@ -21,7 +21,6 @@ const initialListItems : AccordionItem[] = [
         icon: <FingerPrintIcon/>,
         title: 'Hello From Accoordion Section',
         subtitle: 'Current Section is ',
-        arrow: 'test',
         isOpen: false,
         content: <ContentForSectionOne/> 
     },
@@ -30,7 +29,6 @@ const initialListItems : AccordionItem[] = [
         icon: <KeyIcon/> ,
         title: 'Hello From Accoordion Section',
         subtitle: 'Current Section is ',
-        arrow: 'test',
         isOpen: false,
         content: {}
     },
@@ -39,7 +37,6 @@ const initialListItems : AccordionItem[] = [
         icon: <RadioIcon /> ,
         title: 'Hello From Accoordion Section',
         subtitle: 'Current Section is ',
-        arrow: 'test',
         isOpen: false,
         content: {}
     },
@@ -48,7 +45,6 @@ const initialListItems : AccordionItem[] = [
         icon: <WalletIcon /> ,
         title: 'Hello From Accoordion Section',
         subtitle: 'Current Section is ',
-        arrow: 'test',
         isOpen: false,
         content: {}
     },
@@ -57,46 +53,9 @@ const initialListItems : AccordionItem[] = [
         icon: <MapIcon /> ,
         title: 'Hello From Accoordion Section',
         subtitle: 'Current Section is ',
-        arrow: 'test',
         isOpen: false,
         content: {}
     },
-    // {
-    //     id: 5,
-    //     icon: '',
-    //     title: 'Hello From Accoordion Section',
-    //     subtitle: 'Current Section is ',
-    //     arrow: 'test',
-    //     isOpen: false,
-    //     content: {}
-    // },
-    // {
-    //     id: 6,
-    //     icon: '',
-    //     title: 'Hello From Accoordion Section',
-    //     subtitle: 'Current Section is ',
-    //     arrow: 'test',
-    //     isOpen: false,
-    //     content: {}
-    // },
-    // {
-    //     id: 7,
-    //     icon: '',
-    //     title: 'Hello From Accoordion Section',
-    //     subtitle: 'Current Section is ',
-    //     arrow: 'test',
-    //     isOpen: false,
-    //     content: {}
-    // },
-    // {
-    //     id: 8,
-    //     icon: '',
-    //     title: 'Hello From Accoordion Section',
-    //     subtitle: 'Current Section is ',
-    //     arrow: 'test',
-    //     isOpen: false,
-    //     content: {}
-    // },
 ]
 
 export default defineComponent({

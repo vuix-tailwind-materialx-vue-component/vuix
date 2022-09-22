@@ -19,13 +19,12 @@ const AccordionSection = defineComponent({
         }
     },
     setup(props){
-        const { id, title, subtitle, icon, arrow, isOpen, content } = toRefs(props.element);
+        const { id, title, subtitle, icon, isOpen, content } = toRefs(props.element);
         provide("id", id)
         provide("title", title)
         provide("subtitle", subtitle)
         provide("icon", icon)
         provide("isOpen", isOpen)
-        provide("arrow", arrow)
         provide("content", content)
 
         const currentElementId = computed(() => {
