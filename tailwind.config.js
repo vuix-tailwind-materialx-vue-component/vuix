@@ -11,6 +11,10 @@ module.exports = {
       fontFamily: {
         'materialx': ['Manrope', 'sans-serif'] 
       },
+      transitionProperty: {
+        'width': 'width',
+        'height' :'height'
+      },
     },
     screens: {
       sm: '640px',

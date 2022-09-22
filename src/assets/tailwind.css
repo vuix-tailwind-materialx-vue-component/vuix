@@ -2,3 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind variants;
+/* @layer base {
+    .expand-enter-active,
+    .expand-leave-active {
+        transition-property: opacity, height;
+    }
+
+    .expand-enter,
+    .expand-leave-to {
+        opacity: 0;
+    }
+} */
+* {
+    will-change: height;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+.expand-enter-active,
+.expand-leave-active {
+    transition-property: opacity, height;
+}
+
+.expand-enter,
+.expand-leave-to {
+    opacity: 0;
+}
+

@@ -23,7 +23,7 @@ const Accordion = defineComponent({
     },
     render(){
         return (
-            <div id={'__accordion__panel'} class={"w-full h-auto bg-white border border-gray-300 rounded-lg shadow-sm overflow-hidden px-6 py-4"}>
+            <div id={'__accordion__panel'} class={"w-full h-auto bg-white border border-gray-300 rounded-lg shadow-sm overflow-hidden"}>
                 { this.accordionList.map((e) => {
                     return <AccordionSection element={e}/>
                 }) }

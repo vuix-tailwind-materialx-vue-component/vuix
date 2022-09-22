@@ -31,7 +31,7 @@ export default defineComponent({
         return (
             <div 
                 id={'__accordion__section__heading__' + this.id} 
-                class={"flex flex-row items-center justify-between px-4 hover:bg-gray-200 hover:cursor-pointer" + this.toogleActiveClass } 
+                class={"flex flex-row items-center justify-between border-b px-8 hover:bg-gray-200 hover:cursor-pointer " + this.toogleActiveClass } 
                 onClick={
                 (e: Event) => {
                     e.preventDefault()
@@ -45,7 +45,7 @@ export default defineComponent({
                 <AccordionHeadingTitle class={"grow w-full"}/>
                 <AccordionHeadingArrow ref={(el) => {
                     this.arrowIcon = el
-                }} class={"flex-none w-14"}/>
+                }} class={"flex-none w-10 h-10 transition-all duration-500"}/>
             </div>  
         )
     }
