@@ -49,8 +49,11 @@ const AccordionSection = defineComponent({
                 <AccordionSectionHeading onHeadingClicked={() => {
                     this.isOpen = !this.isOpen
                 }}/>
-                
-                { this.isOpen ? <AccorrdionSectionContent /> : <div></div> }
+
+                { this.isOpen ? 
+                    <AccorrdionSectionContent />
+                    : ''
+                }
             </div>
         )
     }
