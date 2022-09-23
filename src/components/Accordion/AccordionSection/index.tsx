@@ -1,7 +1,8 @@
-import { provide, toRefs, type PropType, defineComponent, computed, ref, Transition } from "vue";
+import { provide, toRefs, type PropType, defineComponent, computed, ref, Transition, onMounted } from "vue";
 import type { AccordionItem } from "../../Accordion/Accordion";
 import AccorrdionSectionContent from "./AccordionSectionContent";
 import AccordionSectionHeading from "./AccordionSectionHeading";
+import anime from "animejs";
 
 /**
  * Accordion Section Wrapper Component
@@ -18,7 +19,7 @@ const AccordionSection = defineComponent({
             required: true
         }
     },
-    setup(props){
+    setup(props, { attrs, emit, slots, expose }){
         const { id, title, subtitle, icon, isOpen, content } = toRefs(props.element);
         provide("id", id)
         provide("title", title)
@@ -32,31 +33,66 @@ const AccordionSection = defineComponent({
         })
 
         const sectionId = ref(id);
+        const accordionSectionRef = ref();
+
+        onMounted(() => {
+            const accordionSectionElement = accordionSectionRef.value as HTMLElement;
+            accordionSectionElement.setAttribute("data-is-expanded", (isOpen.value as unknown as string))
+        })
 
         return {
             sectionId,
             isOpen,
             currentElementId,
+            accordionSectionRef,
         }
     },
     render(){
-        
         return (
             <div 
                 id={'__accordion__section__' + (this.currentElementId)} 
-                class={"flex flex-col"}>
+                class={"flex flex-col"}
+                ref={(el) => {
+                    this.accordionSectionRef = el
+                }}
+                >
 
                 <AccordionSectionHeading onHeadingClicked={() => {
-                    this.isOpen = !this.isOpen
+                    this.isOpen = !this.isOpen;
+
+                    const headingElement = (this.accordionSectionRef as HTMLElement);
+                    
+                    setExpandableDatasetFor(headingElement)
+
+                    showAndHideSection(headingElement, 1)
+
                 }}/>
 
-                { this.isOpen ? 
-                    <AccorrdionSectionContent />
-                    : ''
-                }
+                <AccorrdionSectionContent/>
+
+
             </div>
         )
     }
 })
+
+const setExpandableDatasetFor = (element: HTMLElement) => {
+    if(element.dataset.isExpanded === "true"){
+        element.setAttribute("data-is-expanded", "false")
+    } else {
+        element.setAttribute("data-is-expanded", "true")
+    }
+}
+
+const showAndHideSection = (
+    element: HTMLElement, 
+    childrenIndex: number,
+    ) => {
+    if(element.children[childrenIndex].classList.contains("hidden")) {
+        element.children[childrenIndex].classList.remove("hidden")
+    } else {
+        element.children[childrenIndex].classList.add("hidden")
+    }
+}
 
 export default AccordionSection

@@ -19,8 +19,8 @@ const initialListItems : AccordionItem[] = [
     {
         id: 0,
         icon: <FingerPrintIcon class={"w-8 h-8"}/>,
-        title: 'Finger',
-        subtitle: '',
+        title: 'TItle pertama test ',
+        subtitle: 'subtitle pertama',
         isOpen: false,
         content: <ContentForSectionOne/> 
     },

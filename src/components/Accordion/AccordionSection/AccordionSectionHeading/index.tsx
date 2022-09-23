@@ -18,7 +18,7 @@ export default defineComponent({
         })
 
         const arrowIcon = ref();
-        // defineExpose(emit)
+        
         return {
             id,
             isOpen,
