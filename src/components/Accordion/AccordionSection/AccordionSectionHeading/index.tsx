@@ -18,7 +18,7 @@ export default defineComponent({
         })
 
         const arrowIcon = ref();
-        
+
         return {
             id,
             isOpen,
@@ -31,7 +31,7 @@ export default defineComponent({
         return (
             <div 
                 id={'__accordion__section__heading__' + this.id} 
-                class={"flex flex-row items-center justify-between border-b px-8 hover:bg-gray-200 hover:cursor-pointer " + this.toogleActiveClass } 
+                class={"flex flex-row items-center justify-between border-b px-8 bg-gray-100 hover:bg-gray-200 hover:cursor-pointer " + this.toogleActiveClass } 
                 onClick={
                 (e: Event) => {
                     e.preventDefault()

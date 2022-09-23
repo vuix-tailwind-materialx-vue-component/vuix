@@ -4,6 +4,7 @@ import AccorrdionSectionContent from "./AccordionSectionContent";
 import AccordionSectionHeading from "./AccordionSectionHeading";
 import anime from "animejs";
 
+
 /**
  * Accordion Section Wrapper Component
  * 
@@ -28,12 +29,20 @@ const AccordionSection = defineComponent({
         provide("isOpen", isOpen)
         provide("content", content)
 
+        // @ts-ignore
         const currentElementId = computed(() => {
             return props.element.id
         })
 
+        // @ts-ignore
         const sectionId = ref(id);
         const accordionSectionRef = ref();
+
+        const currentHeight = ref(0);
+
+        onMounted(() => {
+            currentHeight.value = (accordionSectionRef.value as HTMLElement).offsetHeight;
+        })
 
         onMounted(() => {
             const accordionSectionElement = accordionSectionRef.value as HTMLElement;
@@ -45,13 +54,14 @@ const AccordionSection = defineComponent({
             isOpen,
             currentElementId,
             accordionSectionRef,
+            currentHeight
         }
     },
     render(){
         return (
             <div 
                 id={'__accordion__section__' + (this.currentElementId)} 
-                class={"flex flex-col"}
+                class={"flex flex-col bg-white"}
                 ref={(el) => {
                     this.accordionSectionRef = el
                 }}
@@ -59,40 +69,40 @@ const AccordionSection = defineComponent({
 
                 <AccordionSectionHeading onHeadingClicked={() => {
                     this.isOpen = !this.isOpen;
-
-                    const headingElement = (this.accordionSectionRef as HTMLElement);
                     
-                    setExpandableDatasetFor(headingElement)
+                    const accordionSectionWrapper = (this.accordionSectionRef as HTMLElement);
 
-                    showAndHideSection(headingElement, 1)
+                    const height = accordionSectionWrapper.offsetHeight;
+
+                    accordionSectionWrapper.children[1].classList.toggle("hidden")
+
+                    if(accordionSectionWrapper.dataset.isExpanded === "true"){
+                        accordionSectionWrapper.style.removeProperty("height") // clean up style anj
+                        accordionSectionWrapper.setAttribute("data-is-expanded", "false")
+                        accordionSectionWrapper.style.height = accordionSectionWrapper.scrollHeight + "px"
+                    } else {
+                        accordionSectionWrapper.style.removeProperty("height") // clean up style anj
+                        accordionSectionWrapper.setAttribute("data-is-expanded", "true")
+                        accordionSectionWrapper.style.height = accordionSectionWrapper.offsetHeight + "px"
+                    }
+
+                    heightChangeTransition(accordionSectionWrapper, height, accordionSectionWrapper.scrollHeight)
 
                 }}/>
 
                 <AccorrdionSectionContent/>
-
-
             </div>
         )
     }
 })
 
-const setExpandableDatasetFor = (element: HTMLElement) => {
-    if(element.dataset.isExpanded === "true"){
-        element.setAttribute("data-is-expanded", "false")
-    } else {
-        element.setAttribute("data-is-expanded", "true")
-    }
-}
-
-const showAndHideSection = (
-    element: HTMLElement, 
-    childrenIndex: number,
-    ) => {
-    if(element.children[childrenIndex].classList.contains("hidden")) {
-        element.children[childrenIndex].classList.remove("hidden")
-    } else {
-        element.children[childrenIndex].classList.add("hidden")
-    }
+const heightChangeTransition = (targetElement: HTMLElement, from: number, to: number) => {
+    anime({
+        targets: targetElement,
+        height: [from, to],
+        easing: "linear",
+        duration: 500,
+    })
 }
 
 export default AccordionSection
