@@ -14,7 +14,7 @@ export default defineComponent({
         const isOpen = ref(inject("isOpen"))
 
         const toogleActiveClass = computed(() => {
-            return isOpen.value  === true ? "bg-gray-200" : "bg-none";
+            return isOpen.value  === true ? "bg-gray-200 text-black" : "bg-none";
         })
 
         const arrowIcon = ref();
