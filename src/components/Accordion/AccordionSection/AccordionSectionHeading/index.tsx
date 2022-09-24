@@ -14,7 +14,7 @@ export default defineComponent({
         const isOpen = ref(inject("isOpen"))
 
         const toogleActiveClass = computed(() => {
-            return isOpen.value  === true ? "bg-gray-300" : "bg-none";
+            return isOpen.value  === true ? "bg-gray-200" : "bg-none";
         })
 
         const arrowIcon = ref();
@@ -31,7 +31,7 @@ export default defineComponent({
         return (
             <div 
                 id={'__accordion__section__heading__' + this.id} 
-                class={"flex flex-row items-center justify-between border-b px-8 bg-gray-100 hover:bg-gray-200 hover:cursor-pointer " + this.toogleActiveClass } 
+                class={"flex flex-row items-center justify-between border-b px-8 bg-gray-100 hover:bg-gray-200 hover:cursor-pointer transition-all 0.5s ease-in-out" + this.toogleActiveClass } 
                 onClick={
                 (e: Event) => {
                     e.preventDefault()
@@ -41,7 +41,7 @@ export default defineComponent({
                     arrowElement.classList.toggle("rotate-90")
                 }
             }>
-                <AccordionHeadingIcon class={"flex-none w-14 mr-4"}/>
+                <AccordionHeadingIcon class={"flex-none w-14"}/>
                 <AccordionHeadingTitle class={"grow w-full"}/>
                 <AccordionHeadingArrow ref={(el) => {
                     this.arrowIcon = el
