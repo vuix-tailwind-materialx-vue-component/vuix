@@ -3,6 +3,7 @@ import type { AccordionItem } from "../../Accordion/Accordion";
 import AccorrdionSectionContent from "./AccordionSectionContent";
 import AccordionSectionHeading from "./AccordionSectionHeading";
 import anime from "animejs";
+import { useExpandablePanel } from "@/composable/expandable-panel";
 
 
 /**
@@ -64,30 +65,11 @@ const AccordionSection = defineComponent({
                 class={"flex flex-col bg-white"}
                 ref={(el) => {
                     this.accordionSectionRef = el
-                }}
-                >
-
+                }}>
                 <AccordionSectionHeading onHeadingClicked={() => {
-                    this.isOpen = !this.isOpen;
-                    
-                    const accordionSectionWrapper = (this.accordionSectionRef as HTMLElement);
-
-                    const height = accordionSectionWrapper.offsetHeight;
-
-                    accordionSectionWrapper.children[1].classList.toggle("hidden")
-
-                    if(accordionSectionWrapper.dataset.isExpanded === "true"){
-                        accordionSectionWrapper.style.removeProperty("height") // clean up style anj
-                        accordionSectionWrapper.setAttribute("data-is-expanded", "false")
-                        accordionSectionWrapper.style.height = accordionSectionWrapper.scrollHeight + "px"
-                    } else {
-                        accordionSectionWrapper.style.removeProperty("height") // clean up style anj
-                        accordionSectionWrapper.setAttribute("data-is-expanded", "true")
-                        accordionSectionWrapper.style.height = accordionSectionWrapper.offsetHeight + "px"
-                    }
-
-                    heightChangeTransition(accordionSectionWrapper, height, accordionSectionWrapper.scrollHeight)
-
+                    const accordionSectionWrapper   = (this.accordionSectionRef as HTMLElement);
+                    const { init } = useExpandablePanel(accordionSectionWrapper)
+                    init();
                 }}/>
 
                 <AccorrdionSectionContent/>

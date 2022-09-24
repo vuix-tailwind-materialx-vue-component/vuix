@@ -2,6 +2,7 @@ import { defineComponent, reactive } from 'vue';
 import { Accordion } from '@/components';
 import type { AccordionItem } from '@/components';
 import { FingerPrintIcon, KeyIcon, MapIcon, RadioIcon, WalletIcon } from '@heroicons/vue/20/solid';
+import List from './functional-components/lists/list';
 
 
 const ContentForSectionOne = defineComponent({
@@ -89,9 +90,9 @@ export default defineComponent({
     }, 
     render(){
         return (
-            <div class={'bg-gray-200 min-w-screen min-h-screen mx-auto p-8'}>
+            <div class={'bg-gray-100 min-w-screen min-h-screen mx-auto flex flex-row'}>
                 <div class={"w-2/6"}>
-                <Accordion items={this.items}/>
+                <Accordion  items={this.items} />
                 </div>
             </div>
         )

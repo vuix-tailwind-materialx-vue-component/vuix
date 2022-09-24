@@ -11,7 +11,7 @@ const AccorrdionSectionContent = defineComponent({
         }
     },
     render() {
-        return this.content !== undefined ? this.content : <div class={"border-b p-8 hidden w-auto h-auto bg-white"}>change need</div> 
+        return this.content !== undefined ? this.content : <div class={"border-b p-8 hidden w-auto h-auto bg-white"}>Deault Content</div> 
     }
 })
 
